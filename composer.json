@@ -1,5 +1,5 @@
 {
-  "version": "5.6.x-dev",
+  "version": "5.6.1-dev",
   "name": "provision/administration",
   "description": "ProVision Administration - laravel package",
   "keywords": [

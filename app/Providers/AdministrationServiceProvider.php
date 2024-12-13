@@ -83,7 +83,7 @@ class AdministrationServiceProvider extends ServiceProvider {
         if (config('provision_administration.packages.log-viewer')) {
 
             //check app settings
-            if (config('logging.default') != 'stack' && !in_array('stack', config('logging.channels.stack.channels')) ) {
+            if (config('logging.default') != 'stack' && !in_array('daily', config('logging.channels.stack.channels')) ) {
                 die('config/logging.php => log != daily');
             }
 
@@ -147,8 +147,8 @@ class AdministrationServiceProvider extends ServiceProvider {
         if (config('provision_administration.packages.log-viewer')) {
 
             //check app settings
-            if (!App::runningInConsole() && config('logging.default') != 'stack' && !in_array('stack', config('logging.channels.stack.channels')) ) {
-                die('config/logging1.php => log != daily');
+            if (!App::runningInConsole() && config('logging.default') != 'stack' && !in_array('daily', config('logging.channels.stack.channels')) ) {
+                die('config/logging.php => log != daily');
             }
 
             //set middleware

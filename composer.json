@@ -1,5 +1,5 @@
 {
-  "version": "5.6.1-dev",
+  "version": "5.6.2-dev",
   "name": "provision/administration",
   "description": "ProVision Administration - laravel package",
   "keywords": [
@@ -33,7 +33,6 @@
     "caffeinated/modules": "^4.2",
     "lavary/laravel-menu": "^1.7",
     "cviebrock/eloquent-sluggable": "^4.3",
-    "provision/laravel-meta-tags": "^3.0",
     "davejamesmiller/laravel-breadcrumbs": "5.0.0",
     "yajra/laravel-datatables-oracle": "~8.0",
     "yajra/laravel-datatables-html": "^3.0",

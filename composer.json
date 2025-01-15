@@ -1,5 +1,4 @@
 {
-  "version": "5.6.2-dev",
   "name": "provision/administration",
   "description": "ProVision Administration - laravel package",
   "keywords": [
@@ -46,7 +45,7 @@
     "dimsav/laravel-translatable": "10.*",
     "rutorika/sortable": "^4.1",
     "barryvdh/laravel-debugbar": "^3.1",
-    "arcanedev/log-viewer": "8.3.0",
+    "arcanedev/log-viewer": "^4.4",
     "laravel-lang/lang": "~3.0",
     "artesaos/seotools": "^0.11.1",
     "intervention/imagecache": "^2.3"

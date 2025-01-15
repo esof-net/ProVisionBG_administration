@@ -19,14 +19,14 @@
         }
     ],
     "require": {
-        "php": "^7.2",
+        "php": "^8.2",
         "barryvdh/laravel-debugbar": "^3.2",
-        "laravel/framework": "^6.0.0",
-        "laravelcollective/html": "^6.0",
+        "laravel/framework": "^11.0.0",
+        "spatie/laravel-html": "^3.11",
         "lavary/laravel-menu": "^1.7",
-        "mcamara/laravel-localization": "^1.4",
+        "mcamara/laravel-localization": "^2.2.1",
         "nwidart/laravel-modules": "^6.0.0",
-        "spatie/laravel-permission": "^3.0"
+        "spatie/laravel-permission": "^6.10.1"
     },
     "require-dev": {
         "orchestra/testbench": "^4.0.0",

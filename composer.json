@@ -20,38 +20,30 @@
   "homepage": "http://provision.bg",
   "type": "library",
   "require": {
-    "php": "^5.6.4 || ^7.0",
-    "laravel/framework": "5.*",
-    "provision/minifier": "dev-master",
-    "provision/media-manager": "v5.6.x-dev",
-    "provision/meta-tags": "dev-master",
+    "php": "^8.2",
+    "laravel/framework": "^11.0",
+    "provision/media-manager": "^11.0",
     "provision/visual-builder": "dev-master",
-    "provision/translation": "v5.6.x-dev",
-    "mcamara/laravel-localization": "<1.6",
-    "zizaco/entrust": "5.2.x-dev",
-    "caffeinated/modules": "^4.2",
+    "provision/translation": "^11.0",
+    "mcamara/laravel-localization": "^2.2.1",
+    "zizaco/entrust": "dev-master",
+    "caffeinated/modules": "dev-master",
     "lavary/laravel-menu": "^1.7",
-    "cviebrock/eloquent-sluggable": "^4.3",
-    "davejamesmiller/laravel-breadcrumbs": "5.0.0",
-    "yajra/laravel-datatables-oracle": "~8.0",
-    "yajra/laravel-datatables-html": "^3.0",
-    "edvinaskrucas/notification": "5.*",
-    "laravel/socialite": "^3.0",
-    "intervention/image": "^2.3",
-    "kalnoy/nestedset": "^4.1",
+    "cviebrock/eloquent-sluggable": "^11.0.1",
+    "diglactic/laravel-breadcrumbs": "^9.0.0",
+    "yajra/laravel-datatables-oracle": "~11.1.5",
+    "yajra/laravel-datatables-html": "^11.8.0",
     "venturecraft/revisionable": "1.*",
-    "laravelcollective/html": "^5.3",
+    "spatie/laravel-html": "^3.11.1",
     "kris/laravel-form-builder": "^1.7",
-    "dimsav/laravel-translatable": "10.*",
+    "astrotomic/laravel-translatable": "v11.15",
     "rutorika/sortable": "^4.1",
     "barryvdh/laravel-debugbar": "^3.1",
-    "arcanedev/log-viewer": "^4.4",
+    "arcanedev/log-viewer": "^11.0.1",
     "laravel-lang/lang": "~3.0",
-    "artesaos/seotools": "^0.11.1",
-    "intervention/imagecache": "^2.3"
+    "intervention/imagecache": "dev-master"
   },
   "require-dev": {
-    "barryvdh/laravel-ide-helper": "^2.4"
   },
   "autoload": {
     "classmap": [
@@ -83,11 +75,34 @@
       }
     }
   },
+  "repositories": [
+    {
+      "url": "../media-manager",
+      "type": "git"
+    },
+    {
+      "url": "../translation",
+      "type": "path"
+    },
+    {
+      "url": "https://github.com/bee-interactive/modules",
+      "type": "git"
+    },
+    {
+      "url": "https://github.com/mrjohnmain/imagecache",
+      "type": "git"
+    }
+  ],  
   "scripts": {
     "post-install-cmd": [
     ],
     "post-update-cmd": [
     ],
     "test": "phpunit"
-  }
+  },
+  "config": {
+    "cache-dir": "/app/.composer/cache/"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }

@@ -7,7 +7,7 @@
 
 namespace ProVision\Administration;
 
-use Dimsav\Translatable\Exception\LocalesNotDefinedException;
+use Astrotomic\Translatable\Exception\LocalesNotDefinedException;
 use File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;

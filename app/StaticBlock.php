@@ -8,7 +8,7 @@
 namespace ProVision\Administration;
 
 use Cviebrock\EloquentSluggable\Sluggable;
-use Dimsav\Translatable\Translatable;
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use ProVision\MediaManager\Traits\MediaManagerTrait;
 

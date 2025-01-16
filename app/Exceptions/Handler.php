@@ -4,6 +4,7 @@ namespace ProVision\Administration\Exceptions;
 
 use Exception;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Throwable;
 
 class Handler extends \App\Exceptions\Handler
 {
@@ -15,7 +16,7 @@ class Handler extends \App\Exceptions\Handler
      * @param  \Exception $exception
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $exception)
+    public function render($request, Throwable $exception)
     {
         if ($exception instanceof NotFoundHttpException) {
             return response()->view('administration::errors.404', compact('exception'), 404);

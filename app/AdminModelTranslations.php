@@ -7,6 +7,7 @@
 
 namespace ProVision\Administration;
 
+use Cocur\Slugify\Slugify;
 use Illuminate\Database\Eloquent\Model;
 
 class AdminModelTranslations extends Model
@@ -26,10 +27,11 @@ class AdminModelTranslations extends Model
     /**
      * Customize slug engine.
      *
-     * @param $engine
-     * @return mixed
+     * @param \Cocur\Slugify\Slugify $engine
+     * @param string $attribute
+     * @return \Cocur\Slugify\Slugify
      */
-    public function customizeSlugEngine($engine)
+    public function customizeSlugEngine(Slugify $engine, string $attribute): Slugify
     {
         /*
          * @todo: да го добавя в config

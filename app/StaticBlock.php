@@ -44,7 +44,7 @@ class StaticBlock extends AdminModel {
      *
      * @return array
      */
-    public function sluggable() {
+    public function sluggable(): array {
         return [
             'key' => [
                 'source' => 'key',

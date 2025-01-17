@@ -7,6 +7,7 @@
 
 namespace ProVision\Administration\Http\Controllers\Administrators;
 
+use Diglactic\Breadcrumbs\Breadcrumbs;
 use Form;
 use Illuminate\Http\Request;
 use Kris\LaravelFormBuilder\FormBuilder;
@@ -97,7 +98,7 @@ class AdministratorsController extends BaseAdministrationController {
                 'title' => trans('administration::administrators.email'),
             ]);
 
-        \Breadcrumbs::register('admin_final', function ($breadcrumbs) {
+        Breadcrumbs::for('admin_final', function ($breadcrumbs) {
             $breadcrumbs->parent('admin_home');
             $breadcrumbs->push(trans('administration::administrators.administrators'), route('provision.administration.administrators.index'));
         });
@@ -120,7 +121,7 @@ class AdministratorsController extends BaseAdministrationController {
 
         Administration::setTitle(trans('administration::administrators.create_administrator'));
 
-        \Breadcrumbs::register('admin_final', function ($breadcrumbs) {
+        Breadcrumbs::for('admin_final', function ($breadcrumbs) {
             $breadcrumbs->parent('admin_home');
             $breadcrumbs->push(trans('administration::administrators.administrators'), route('provision.administration.administrators.index'));
             $breadcrumbs->push(trans('administration::administrators.create_administrator'), route('provision.administration.administrators.create'));
@@ -196,7 +197,7 @@ class AdministratorsController extends BaseAdministrationController {
 
         Administration::setTitle(trans('administration::administrators.edit_administrator', ['name' => $user->name]));
 
-        \Breadcrumbs::register('admin_final', function ($breadcrumbs) use ($user) {
+        Breadcrumbs::for('admin_final', function ($breadcrumbs) use ($user) {
             $breadcrumbs->parent('admin_home');
             $breadcrumbs->push(trans('administration::administrators.administrators'), route('provision.administration.administrators.index'));
             $breadcrumbs->push(trans('administration::administrators.edit_administrator', ['name' => $user->name]), route('provision.administration.administrators.index'));

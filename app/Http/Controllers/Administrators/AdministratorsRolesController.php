@@ -7,6 +7,7 @@
 
 namespace ProVision\Administration\Http\Controllers\Administrators;
 
+use Diglactic\Breadcrumbs\Breadcrumbs;
 use Form;
 use Kris\LaravelFormBuilder\FormBuilder;
 use ProVision\Administration\Facades\Administration;
@@ -61,7 +62,7 @@ class AdministratorsRolesController extends BaseAdministrationController {
             return $datatables->make(true);
         }
 
-        \Breadcrumbs::register('admin_final', function ($breadcrumbs) {
+        Breadcrumbs::for('admin_final', function ($breadcrumbs) {
             $breadcrumbs->parent('admin_home');
             $breadcrumbs->push(trans('administration::administrators.administrators-roles'), route('provision.administration.administrators-roles.index'));
         });
@@ -102,7 +103,7 @@ class AdministratorsRolesController extends BaseAdministrationController {
 
         Administration::setTitle(trans('administration::administrators.create_role'));
 
-        \Breadcrumbs::register('admin_final', function ($breadcrumbs) {
+        Breadcrumbs::for('admin_final', function ($breadcrumbs) {
             $breadcrumbs->parent('admin_home');
             $breadcrumbs->push(trans('administration::administrators.administrators'), route('provision.administration.administrators-roles.index'));
             $breadcrumbs->push(trans('administration::administrators.create_role'), route('provision.administration.administrators-roles.create'));
@@ -183,7 +184,7 @@ class AdministratorsRolesController extends BaseAdministrationController {
 
         Administration::setTitle(trans('administration::administrators.edit_role', ['name' => $role->name]));
 
-        \Breadcrumbs::register('admin_final', function ($breadcrumbs) use ($role) {
+        Breadcrumbs::for('admin_final', function ($breadcrumbs) use ($role) {
             $breadcrumbs->parent('admin_home');
             $breadcrumbs->push(trans('administration::administrators.administrators-roles'), route('provision.administration.administrators-roles.index'));
             $breadcrumbs->push(trans('administration::administrators.edit_role', ['name' => $role->name]), route('provision.administration.administrators-roles.index'));

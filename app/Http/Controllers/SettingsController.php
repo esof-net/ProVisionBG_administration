@@ -7,6 +7,7 @@
 
 namespace ProVision\Administration\Http\Controllers;
 
+use Diglactic\Breadcrumbs\Breadcrumbs;
 use Form;
 use Kris\LaravelFormBuilder\FormBuilder;
 use ProVision\Administration\Facades\Administration;
@@ -32,7 +33,7 @@ class SettingsController extends BaseAdministrationController
     {
         Administration::setTitle(trans('administration::settings.title'));
 
-        \Breadcrumbs::register('admin_final', function ($breadcrumbs) {
+        Breadcrumbs::for('admin_final', function ($breadcrumbs) {
             $breadcrumbs->parent('admin_home');
             $breadcrumbs->push(trans('administration::settings.title'), route('provision.administration.settings.index'));
         });

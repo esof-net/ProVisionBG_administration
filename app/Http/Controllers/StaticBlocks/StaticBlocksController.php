@@ -7,6 +7,7 @@
 
 namespace ProVision\Administration\Http\Controllers\StaticBlocks;
 
+use Diglactic\Breadcrumbs\Breadcrumbs;
 use Form;
 use Guzzle\Http\Message\Response;
 use Illuminate\Http\Request;
@@ -68,7 +69,7 @@ class StaticBlocksController extends BaseAdministrationController {
             return $datatables->make(true);
         }
 
-        \Breadcrumbs::register('admin_final', function ($breadcrumbs) {
+        Breadcrumbs::for('admin_final', function ($breadcrumbs) {
             $breadcrumbs->parent('admin_home');
             $breadcrumbs->push(trans('administration::static_blocks.name'), route('provision.administration.static-blocks.index'));
         });
@@ -110,7 +111,7 @@ class StaticBlocksController extends BaseAdministrationController {
 
         Administration::setTitle(trans('administration::static_blocks.create'));
 
-        \Breadcrumbs::register('admin_final', function ($breadcrumbs) {
+        Breadcrumbs::for('admin_final', function ($breadcrumbs) {
             $breadcrumbs->parent('admin_home');
             $breadcrumbs->push(trans('administration::static_blocks.name'), route('provision.administration.static-blocks.index'));
             $breadcrumbs->push(trans('administration::static_blocks.create'), route('provision.administration.static-blocks.create'));
@@ -174,7 +175,7 @@ class StaticBlocksController extends BaseAdministrationController {
 
         Administration::setTitle(trans('administration::static_blocks.edit', ['key' => $staticBlock->key]));
 
-        \Breadcrumbs::register('admin_final', function ($breadcrumbs) use ($staticBlock) {
+        Breadcrumbs::for('admin_final', function ($breadcrumbs) use ($staticBlock) {
             $breadcrumbs->parent('admin_home');
             $breadcrumbs->push(trans('administration::static_blocks.name'), route('provision.administration.static-blocks.index'));
             $breadcrumbs->push(trans('administration::static_blocks.edit', ['key' => $staticBlock->key]), route('provision.administration.static-blocks.index'));

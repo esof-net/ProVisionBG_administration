@@ -7,6 +7,7 @@
 
 namespace ProVision\Administration\Http\Controllers\Systems;
 
+use Diglactic\Breadcrumbs\Breadcrumbs;
 use File;
 use Kris\LaravelFormBuilder\FormBuilder;
 use ProVision\Administration\Forms\MaintenanceModeForm;
@@ -36,7 +37,7 @@ class MaintenanceModeController extends BaseAdministrationController
 
         \Administration::setTitle(trans('administration::systems.maintenance-mode'));
 
-        \Breadcrumbs::register('admin_final', function ($breadcrumbs) {
+        Breadcrumbs::for('admin_final', function ($breadcrumbs) {
             $breadcrumbs->parent('admin_home');
             $breadcrumbs->push(trans('administration::systems.maintenance-mode'), route('provision.administration.systems.maintenance-mode'));
         });

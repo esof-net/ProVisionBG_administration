@@ -7,9 +7,12 @@
 /**
  * System status for remote checking
  */
-Route::get('/logs-monitoring', function () {
+
+use Arcanedev\LogViewer\Contracts\LogViewer;
+
+Route::get('/logs-monitoring', function (LogViewer $logViewer) {
     return response()->json([
-        'data' =>  \Arcanedev\LogViewer\Facades\LogViewer::tree()
+        'data' =>  $logViewer->tree()
     ]);
 });
 

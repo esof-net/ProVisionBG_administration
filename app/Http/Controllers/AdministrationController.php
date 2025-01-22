@@ -7,13 +7,13 @@
 
 namespace ProVision\Administration\Http\Controllers;
 
-use Arcanedev\LogViewer\Facades\LogViewer;
+use Arcanedev\LogViewer\Contracts\LogViewer;
 use Auth;
 use ProVision\Administration\Facades\Administration;
 
 class AdministrationController extends BaseAdministrationController
 {
-    public function index()
+    public function index(LogViewer $logViewer)
     {
         if (!Auth::guard(config('provision_administration.guard'))->check()) {
             return redirect()->route('provision.administration.login');
@@ -54,7 +54,7 @@ class AdministrationController extends BaseAdministrationController
          * total errors - log viewer
          */
         if (config('provision_administration.packages.log-viewer')) {
-            $totalErrorCounts = LogViewer::total('error');
+            $totalErrorCounts = $logViewer->total('error');
 
             $box = new \ProVision\Administration\Dashboard\LinkBox();
             $box->setTitle('Errors');

@@ -394,7 +394,7 @@
                     success(json.location);
                 },
                 error: function (data) {
-                    failure('HTTP Error: ' + data);
+                    failure('HTTP Error: ' + (data.responseJSON ? data.responseJSON.message : data.status));
                 }
             });
         },

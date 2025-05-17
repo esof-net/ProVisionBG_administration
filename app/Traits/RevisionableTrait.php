@@ -7,6 +7,10 @@
 
 namespace ProVision\Administration\Traits;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Event;
+
 /*
  * This file is part of the Revisionable package by Venture Craft
  *
@@ -186,8 +190,8 @@ trait RevisionableTrait
                     }
                 }
                 $revision = new \Venturecraft\Revisionable\Revision();
-                \DB::table($revision->getTable())->insert($revisions);
-                \Illuminate\Support\Facades\Event::fire('revisionable.saved', ['model' => $this, 'revisions' => $revisions]);
+                DB::table($revision->getTable())->insert($revisions);
+                Event::dispatch('revisionable.saved', ['model' => $this, 'revisions' => $revisions]);
             }
         }
     }
@@ -265,8 +269,8 @@ trait RevisionableTrait
         }
 
 
-        if (\Auth::guard($this->guard)->check()) {
-            return \Auth::guard($this->guard)->user()->id;
+        if (Auth::guard($this->guard)->check()) {
+            return Auth::guard($this->guard)->user()->id;
         }
 
         return null;
@@ -312,8 +316,8 @@ trait RevisionableTrait
             ];
 
             $revision = new \Venturecraft\Revisionable\Revision();
-            \DB::table($revision->getTable())->insert($revisions);
-            \Event::fire('revisionable.created', ['model' => $this, 'revisions' => $revisions]);
+            DB::table($revision->getTable())->insert($revisions);
+            Event::dispatch('revisionable.created', ['model' => $this, 'revisions' => $revisions]);
         }
     }
 
@@ -337,8 +341,8 @@ trait RevisionableTrait
                 'updated_at' => new \DateTime(),
             ];
             $revision = new \Venturecraft\Revisionable\Revision;
-            \DB::table($revision->getTable())->insert($revisions);
-            \Event::fire('revisionable.deleted', ['model' => $this, 'revisions' => $revisions]);
+            DB::table($revision->getTable())->insert($revisions);
+            Event::dispatch('revisionable.deleted', ['model' => $this, 'revisions' => $revisions]);
         }
     }
 

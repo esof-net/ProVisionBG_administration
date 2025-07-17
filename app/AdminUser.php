@@ -12,10 +12,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Hash;
 use ProVision\Administration\Notifications\ResetPassword;
 use Validator;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
+use \Illuminate\Support\Facades\Hash;
 
 class AdminUser extends Authenticatable
 {
@@ -92,6 +92,10 @@ class AdminUser extends Authenticatable
      */
     public function setPasswordAttribute($value)
     {
+        if (Hash::needsRehash($value)) {
+            $value = Hash::make($value);
+        }
+
         $this->attributes['password'] = $value;
     }
 
